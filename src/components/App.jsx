@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
@@ -17,18 +17,16 @@ export function App() {
     return feedback.good + feedback.neutral + feedback.bad;
   };
   const countPositiveFeedbackPercentage = () => {
-    if (this.countTotalFeedback() >= 1) {
-      return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+    if (countTotalFeedback() >= 1) {
+      return Math.round((feedback.good / countTotalFeedback()) * 100);
     } else {
       return 0;
     }
   };
-
-  const { good, neutral, bad } = this.state;
   const totalFeedback = countTotalFeedback();
   const positivePercentage = countPositiveFeedbackPercentage();
   // const feedbackGiven = good === 0 && neutral === 0 && bad === 0;
-  const feedbackOpt = Object.keys(this.state);
+  const feedbackOpt = Object.keys(feedback);
 
   return (
     <>
@@ -42,9 +40,9 @@ export function App() {
       {totalFeedback > 0 ? (
         <Section title="Statistics">
           <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
+            good={feedback.good}
+            neutral={feedback.neutral}
+            bad={feedback.bad}
             total={totalFeedback}
             positivePercentage={positivePercentage}
           />
