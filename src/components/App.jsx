@@ -26,7 +26,6 @@ export function App() {
   };
   const totalFeedback = countTotalFeedback();
   const positivePercentage = countPositiveFeedbackPercentage();
-  // const feedbackGiven = good === 0 && neutral === 0 && bad === 0;
   const feedbackOpt = Object.keys(feedback);
 
   return (
