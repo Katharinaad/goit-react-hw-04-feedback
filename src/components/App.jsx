@@ -9,6 +9,7 @@ export function App() {
 
   const handleFeedback = type => {
     setFeedback(prevFeedback => ({
+      ...prevFeedback,
       [type]: prevFeedback[type] + 1,
     }));
   };
